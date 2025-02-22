@@ -1,0 +1,434 @@
+/* 전체 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* 세로형 네비게이션 바 */
+nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;  /* 네비게이션 바 너비 */
+    height: 100vh; /* 화면 전체 높이 */
+    background-color: #333;
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    align-items:  center;
+    justify-content: center;
+}
+
+/* 네비게이션 리스트 스타일 */
+nav ul {
+    list-style: none;
+    width: 100%;
+}
+
+/* 네비게이션 링크 스타일 */
+nav ul li {
+    width: 100%;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 0;
+    text-align: center;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+/* 네비게이션 활성 상태 */
+nav ul li a.active {
+    background-color: #777;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+}
+
+/* 메인 콘텐츠 영역 */
+main {
+    margin-left: 200px; /* 네비게이션 바만큼 오른쪽으로 이동 */
+    padding: 0px;
+    padding-top: 0px
+}
+
+/* 섹션 스타일 */
+section {
+    padding: 50px;
+    min-height: 100vh; /* 섹션을 화면 높이만큼 */
+    border-bottom: 3px solid #ccc;
+}
+
+section:nth-child(even) {
+    background-color: #f4f4f4;
+}
+section:nth-child(odd) {
+    background-color: #fff;
+}
+
+/* 제목 스타일 */
+h1, h2 {
+    margin-bottom: 40px;
+}
+
+/* 본문 텍스트 스타일 */
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* 홈 섹션 스타일 */
+#home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    position: relative; /* 내부 요소 정렬을 위해 */
+}
+
+#icon-container {
+    display: flex;
+    margin-top: 20px;  /* 위쪽 여백 추가 */
+    text-align: center; /* 가운데 정렬 */
+    position: absolute;
+    bottom : 35%;
+}
+
+.icon-item {
+    margin-right: 10px; /* 각 아이콘 간의 간격 */
+}
+
+.icon-item:last-child {
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+#icon-container i {
+    font-size: 40px;  /* 아이콘 크기 */
+    color: #333;      /* 기본 색상 */
+    transition: color 0.3s ease-in-out;
+}
+
+#icon-container i:hover {
+    color: #E4405F; /* 인스타그램 컬러 (호버 시) */
+}
+
+#name-container {
+    display: flex;
+    flex-direction: column;  /* 세로로 배치 */
+    justify-content: center;
+    align-items: center;
+}
+
+/* 이름 스타일 (완전히 고정) */
+#name {
+    font-size: 70px;
+    font-weight: bold;
+    position: absolute; /* 부모 요소(#home) 기준으로 고정 */
+    top: 40%; /* 중앙에 배치 */
+    left: 50%;
+    transform: translate(-50%, -50%); /* 정확한 중앙정렬 */
+}
+
+/* 타이핑 효과 스타일 */
+#typing {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 5px solid #333; /* 깜빡이는 커서 */
+    display: flex;
+    padding-right: 10px;
+    position: relative;
+    top: 55%; /* 이름 아래에 위치 */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 깜빡이는 커서 효과 */
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+#about {
+    position: relative; /* 섹션 내부 요소들을 위한 상대 위치 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 20px 20px;
+    color: #333;
+}
+
+#about-header {
+    width: 100%;
+    top: 0;
+    background-color: #f4f4f4; /* 배경 색을 동일하게 맞춤 */
+    padding: 20px 0;
+    z-index: 10; /* 다른 요소보다 위에 표시 */
+}
+
+/* About Me 제목 스타일 */
+#about-header h2 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+}
+
+/* 본문에 강조 효과 */
+#about p span {
+    color: #030e16; /* 강조된 부분 색 */
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#about-container {
+    display: flex;
+    align-items: center; /* 수직 가운데 정렬 */
+    justify-content: center; /* 가운데 정렬 */
+    gap: 30px; /* 이미지와 텍스트 간 간격 */
+    max-width: 900px; /* 컨텐츠 최대 너비 */
+    margin: 0 auto; /* 가운데 정렬 */
+    padding: 50px 20px;
+}
+
+#about-container img {
+    width: 200px; /* 이미지 크기 조정 */
+    height: auto;
+    border-radius: 10px; /* 모서리 둥글게 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+}
+
+#about-text p {
+    max-width: 600px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    padding: 10px 20px;
+    text-align: left;
+}
+
+#about-info {
+    margin-top: 30px;
+}
+#about-info p {
+    text-align: left;
+    font-size: 15px;
+    color: #555;
+    padding: 0 20px;
+}
+#experience{
+    padding-top: 20px;
+}
+
+#experience-header {
+    width: 100%;
+    top: 0;
+    background-color: #fff; /* 배경 색을 동일하게 맞춤 */
+    padding: 20px 0;
+    z-index: 10; /* 다른 요소보다 위에 표시 */
+}
+
+/* experiece 제목 스타일 */
+#experience h2 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+}
+
+/* 경험 항목 스타일 */
+.experience-item {
+    background: #ffffff;
+    padding: 25px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 700px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* 제목 및 강조 텍스트 스타일 */
+.experience-item h3 {
+    font-size: 24px;
+    color: #3498db;
+    margin-bottom: 5px;
+}
+
+.experience-item p {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.experience-item strong {
+    font-size: 18px;
+    color: #333;
+}
+
+/* 'Learned:' 제목 스타일 */
+.experience-item h4 {
+    font-size: 20px;
+    color: #e67e22;
+    margin-top: 15px;
+}
+
+/* 리스트 스타일 */
+.experience-item ul {
+    list-style-type: disc;
+    padding-left: 25px;
+    margin-top: 10px;
+}
+
+.experience-item ul li {
+    font-size: 13px;
+    color: #444;
+    margin: 5px 0;
+}
+#skill{
+    padding-top: 20px;
+}
+#skill-header {
+    width: 100%;
+    top: 0;
+    background-color: #f4f4f4; /* 배경 색을 동일하게 맞춤 */
+    padding: 20px 0;
+    z-index: 10; /* 다른 요소보다 위에 표시 */
+}
+
+/* About Me 제목 스타일 */
+#skill-header h2 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+}
+#skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    padding: 0 20px;
+}
+
+/* 각 항목 그룹 (Web Programming Languages, Embedded Programming Tools 등) */
+#skills-list h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 0px;
+}
+
+/* 리스트 스타일 */
+#skills-list ul {
+    
+    padding-left: 20px;
+    margin: 0;
+}
+
+/* 리스트 항목 스타일 */
+#skills-list ul li {
+    font-size: 13px;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+    #skill-header h2 {
+        font-size: 40px;
+    }
+
+    #skills-list h3 {
+        font-size: 20px;
+    }
+
+    #skills-list ul li {
+        font-size: 16px;
+    }
+}
+/* 아이콘을 위한 div 스타일 */
+.icon-container {
+    display: flex;
+    gap: 15px; /* 아이콘 간 간격 */
+    justify-content: start;
+    margin-bottom: 10px; /* 아이콘과 다른 리스트 항목들 간의 간격 */
+}
+
+/* 아이콘 스타일 */
+.icon-container i {
+    font-size: 40px;
+    color: #555;
+}
+
+/* 각 아이콘 앞에 텍스트가 따라오는 스타일 */
+#skills-list ul li i {
+    margin-right: 8px; /* 아이콘과 텍스트 간의 간격 */
+}
+
+#portfolio {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.portfolio-container {
+    display: block; /* 가로 정렬 대신 기본 블록 배치 */
+}
+
+.project-card {
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    margin: 20px auto; /* 위아래 간격 & 중앙 정렬 */
+    transition: transform 0.3s ease-in-out;
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.project-card h3 {
+    margin: 15px 0 10px;
+    font-size: 22px;
+    color: #333;
+}
+
+.project-card p {
+    font-size: 16px;
+    color: #555;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+/* 모바일에서 글자 크기 줄이기 */
+@media (max-width: 768px) {
+    #about h2 {
+        font-size: 40px;
+    }
+
+    #about p {
+        font-size: 18px;
+    }
+}
